@@ -31,7 +31,8 @@ tit /github 使用方法小记：    http://like-eagle.iteye.com/blog/1317009
 …or create a new repository on the command line
 
 touch README.md
-git init
+git init (在初始化远程仓库时最好使用 git --bare init   而不要使用：git init
+   如果使用了git init初始化，则远程仓库的目录下，也包含work tree，当本地仓库向远程仓库push时,   如果远程仓库正在push的分支上（如果当时不在push的分支，就没有问题）, 那么push后的结果不会反应在work tree上,  也即在远程仓库的目录下对应的文件还是之前的内容，必须得使用git reset --hard才能看到push后的内容.)
 git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/492371545/downloadProgress.git  （或：git remote add downloadProgress git@github.com:492371545/downloadProgress.git）
